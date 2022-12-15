@@ -1,0 +1,12 @@
+templates:
+  Chart:
+    sort_title: +0_<<num>><<collection_name>>
+    sync_mode: sync
+collections:
+  Letterboxd Top 250 Documentary Films:
+    template: { name: Chart, num: 1 }
+    letterboxd_list: https://letterboxd.com/jack/list/official-top-250-documentary-films/
+    summary: Letterboxd's Top 250 Documentary Films, ranked by average user rating.
+    collection_order: custom
+    url_poster: https://i.imgur.com/OsTf89R.jpg
+    sync_mode: sync

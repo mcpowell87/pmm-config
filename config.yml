@@ -1,0 +1,183 @@
+## This file is a template remove the .template to use the file
+
+libraries:                                      # Library mappings must have a colon (:) placed after them
+  Movies:
+    metadata_path:
+      - file: config/config/movies/movies.yml
+      - file: config/config/movies/charts.yml
+      - file: config/config/movies/studios.yml
+      - file: config/config/movies/holiday.yml
+      - file: config/config/movies/collections.yml
+    operations:
+      mass_critic_rating_update: imdb
+      mass_audience_rating_update: mdb_letterboxd
+    overlay_path:
+      - pmm: resolution
+      - pmm: audio_codec
+      - pmm: language_count
+      - pmm: ratings
+        template_variables:
+          rating1: critic
+          rating1_image: imdb
+          rating2: audience
+          rating2_image: letterboxd
+          vertical_position: bottom
+          rating_alignment: horizontal
+  Movies 4K:
+    operations:
+      mass_critic_rating_update: imdb
+      mass_audience_rating_update: mdb_letterboxd
+    overlay_path:
+      - pmm: resolution
+      - pmm: audio_codec
+      - pmm: imdb_top_250
+      - pmm: language_count
+      #- git: home1800/overlays/ratings-no250
+      - pmm: ratings
+        template_variables:
+          rating1: critic
+          rating1_image: imdb
+          rating2: audience
+          rating2_image: letterboxd
+          vertical_position: bottom
+          rating_alignment: horizontal
+  Documentaries:
+    metadata_path:
+      - file: config/config/documentaries/charts.yml
+    overlay_path:
+      - pmm: resolution
+      - pmm: audio_codec
+      - pmm: language_count
+      #- git: home1800/overlays/ratings-no250
+      - pmm: ratings
+        template_variables:
+          rating1: critic
+          rating2: audience
+          rating1_image: imdb
+          rating2_image: letterboxd
+          vertical_position: bottom
+          rating_alignment: horizontal
+    operations:
+      mass_critic_rating_update: imdb
+      mass_audience_rating_update: mdb_letterboxd
+settings:                                       # Can be individually specified per library as well
+  cache: true
+  cache_expiration: 60
+  asset_directory: config/assets
+  asset_folders: true
+  asset_depth: 0
+  create_asset_folders: true
+  dimensional_asset_rename: false
+  show_missing_season_assets: false
+  sync_mode: sync
+  delete_below_minimum: true
+  delete_not_scheduled: false
+  run_again_delay: 2
+  missing_only_released: false
+  only_filter_missing: false
+  show_unmanaged: true
+  show_filtered: false
+  show_options: false
+  show_missing: true
+  show_missing_assets: true
+  save_missing: true
+  tvdb_language: eng
+  ignore_ids:
+  ignore_imdb_ids:
+  minimum_items: 1
+  default_collection_order:
+  verify_ssl: true
+  download_url_assets: true
+  playlist_sync_to_users: all
+  show_missing_episode_assets: false
+  show_asset_not_needed: true
+  item_refresh_delay: 0
+  custom_repo:
+  prioritize_assets: false
+  playlist_report: true
+  check_nightly: false
+  show_unconfigured: true
+webhooks:                                       # Can be individually specified per library as well
+  error:
+  run_start:
+  run_end:
+  changes:
+  version:
+plex:                                           # Can be individually specified per library as well; REQUIRED for the script to run
+  url: http://mediaserver.home:32400
+  token: jo3AxZsLvGZ5d9nFVkaL
+  timeout: 60
+  clean_bundles: false
+  empty_trash: false
+  optimize: false
+tmdb:                                           # REQUIRED for the script to run
+  apikey: 64defd376d432286a56e16e593e5d208
+  language: en
+  cache_expiration: 60
+  region:
+tautulli:                                       # Can be individually specified per library as well
+  url: https://plex.mcpowell.info/stats
+  apikey: de7186e9351342de94a2cc769637f2f4
+omdb:
+  apikey:
+notifiarr:
+  apikey: 0cd7c559-2633-4555-971b-13d0004df570
+anidb:                                          # Not required for AniDB builders unless you want mature content
+  username:
+  password:
+  language: en
+  client:
+radarr:                                         # Can be individually specified per library as well
+  url: http://192.168.1.12:7878
+  token:
+  root_folder_path: S:/Movies
+  monitor: true
+  availability: announced
+  quality_profile: HD-1080p
+  tag:
+  search: false
+  radarr_path:
+  plex_path:
+  add_existing: false
+  add_missing: false
+  upgrade_existing: false
+sonarr:                                         # Can be individually specified per library as well
+  url: http://192.168.1.12:8989
+  token:
+  root_folder_path: S:/TV Shows
+  monitor: all
+  quality_profile: HD-1080p
+  language_profile: English
+  series_type: standard
+  season_folder: true
+  tag:
+  search: false
+  cutoff_search: false
+  sonarr_path:
+  plex_path:
+  add_existing: false
+  add_missing: false
+  upgrade_existing: false
+trakt:
+  client_id:
+  client_secret:
+  authorization:
+    # everything below is autofilled by the script
+    access_token:
+    token_type:
+    expires_in:
+    refresh_token:
+    scope: public
+    created_at:
+mal:
+  client_id:
+  client_secret:
+  authorization:
+    # everything below is autofilled by the script
+    access_token:
+    token_type:
+    expires_in:
+    refresh_token:
+mdblist:
+  apikey: nu42j3yo85fc26gh94v3ab244
+  cache_expiration: 30

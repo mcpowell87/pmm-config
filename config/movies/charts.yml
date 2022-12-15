@@ -1,0 +1,52 @@
+templates:
+  Chart:
+    sort_title: +0_<<num>><<collection_name>>
+    sync_mode: sync
+collections:
+  IMDb Top Rated:
+    template: { name: Chart, num: 5 }
+    imdb_chart: top_movies
+    url_poster: https://i.redd.it/gkfygy4k3tr21.jpg
+    summary: Top 250 movies on IMDb
+    collection_order: custom
+  IMDb Top Rated (English Only):
+    template: { name: Chart, num: 6 }
+    imdb_chart: top_english
+    url_poster: https://i.redd.it/gkfygy4k3tr21.jpg
+    summary: Top 250 English movies on IMDb
+    collection_order: custom
+  IMDB Popular Movies:
+    template: { name: Chart, num: 7 }
+    imdb_chart: popular_movies
+    url_poster: https://theposterdb.com/api/assets/231643
+    summary: Popular movies on IMDb
+    sync_mode: sync
+    collection_order: custom
+  Letterboxd Top 250 Narrative Feature Films:
+    template: { name: Chart, num: 4 }
+    letterboxd_list: https://letterboxd.com/dave/list/official-top-250-narrative-feature-films/
+    summary: Letterboxd's Top 250 movies, based on the average weighted rating of all Letterboxd users.  Excludes stand-up specials, stage plays, concert films, documentaries, shorts, collection listings, and other rarities, so only feature length narrative movies are listed.
+    url_poster: https://i.imgur.com/t9jlmdF.jpg
+    sync_mode: sync
+    collection_order: custom
+  American Film Institute's 100 Years... 100 Movies - 10th Anniversary Edition:
+    template: { name: Chart, num: 3 }
+    letterboxd_list: https://letterboxd.com/rogere/list/afi-100100-movies-10th-anniversary-edition/
+    summary: The American Film Institute proudly curates lists to celebrate excellence in the art form. We believe their greatest impact is to inspire personal, passionate discussions about what makes a great film and why and, also, to chart the evolution of the art form. Since its inception, American film has marginalized the diversity of voices that make our nation and its stories strong – and these lists reflect that intolerable truth. AFI acknowledges its responsibility in curating these lists that has reinforced this marginality and looks forward to releasing new lists that will embrace our modern day and drive culture forward.
+    url_poster: https://i.redd.it/at1xdro69zq41.jpg
+    sync_mode: sync
+    collection_order: custom
+  Sight and Sound's Critics' Greatest Films of All Time (2022):
+    template: { name: Chart, num: 1 }
+    letterboxd_list: https://letterboxd.com/bfi/list/sight-and-sounds-greatest-films-of-all-time/
+    summary: Sight and Sound magazine's once-a-decade 'Critics Greatest Films of All Time' poll.  2022 edition.
+    url_poster: https://www2.bfi.org.uk/sites/bfi.org.uk/files/styles/full/public/image/2012-09-shadow.png
+    sync_mode: sync
+    collection_order: custom
+  Sight and Sound's Director's Greatest Films of All Time (2022):
+    template: { name: Chart, num: 2 }
+    letterboxd_list: https://letterboxd.com/bfi/list/sight-and-sounds-directors-100-greatest-films/
+    summary: Sight and Sound magazine's once-a-decade 'Directors Greatest Films of All Time' poll.  2022 edition.
+    url_poster: https://www2.bfi.org.uk/sites/bfi.org.uk/files/styles/full/public/image/2012-09-shadow.png
+    sync_mode: sync
+    collection_order: custom

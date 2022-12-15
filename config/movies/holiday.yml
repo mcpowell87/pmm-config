@@ -1,0 +1,122 @@
+######################################################
+#                Holiday Collections                 #
+######################################################
+external_templates:
+  git: PMM/templates
+
+templates:
+  Holiday:
+    default:
+      key: <<collection_name>>
+      sort_by: title.asc
+      sort_by_<<key>>: <<sort_by>>
+    optional:
+      - schedule_<<key>>
+    schedule: <<schedule_<<key>>>>
+    smart_label: <<sort_by_<<key>>>>
+    summary: |-
+      A timed collection of <<collection_name>> and other movies that may relate to the holiday.
+      
+      NOTE: this collection will only be around until <<end_date>>.
+    delete_not_scheduled: true
+    visible_home: true
+    visible_shared: true
+    url_poster: https://theposterdb.com/api/assets/<<poster_id>>
+collections:
+  variables:
+    key: thanksgiving
+  Thanksgiving:
+    variables:
+      key: thanksgiving
+    template:
+      - name: Holiday
+        schedule_thanksgiving: range(11/01-11/30)
+        poster_id: 112252
+    imdb_list: 
+      - https://www.imdb.com/list/ls054121890/
+      - https://www.imdb.com/list/ls000835734/
+      - https://www.imdb.com/list/ls091597850/
+  Hooptober:
+    variables:
+      key: halloween
+    template:
+      - name: Holiday
+        schedule_halloween: range(10/01-10/31)
+        poster_id: 692173
+    letterboxd_list:
+      - https://letterboxd.com/mcpowell87/list/hooptober-2022/
+  Halloween Movies:
+    variables:
+      key: halloween
+    template: 
+      - name: Holiday
+        schedule_halloween: range(10/01-10/31)
+        poster_id: 102917
+    imdb_list:
+      - https://www.imdb.com/list/ls023118929/
+      - https://www.imdb.com/list/ls000099714/
+      - https://www.imdb.com/list/ls082388137/
+    tmdb_collection:
+      - 91361    # Halloween Collection
+      - 8581     # A Nightmare on Elm Street Collection
+      - 1733     # The Mummy Collection
+      - 8091     # Alien Collection
+    tmdb_movie:
+      - 23437    # A Nightmare on Elm Street (2010)
+    letterboxd_list:
+      - https://letterboxd.com/mysteriis666/list/halloween/
+  Christmas Movies:
+    variables:
+      key: christmas
+    template:
+      - name: Holiday
+        schedule_christmas: range(12/01-12/31)
+        poster_id: 48897
+    imdb_list: https://www.imdb.com/list/ls000096828/
+  Independence Day:
+    variables:
+      key: independence
+    template:
+      - name: Holiday
+        schedule_independence: range(06/23-07/11)
+        poster_id: 240645
+    imdb_list:
+      - https://www.imdb.com/list/ls068664510/
+      - https://www.imdb.com/list/ls080925875/
+  Easter:
+    variables:
+      key: easter
+    template:
+      - name: Holiday
+        schedule_easter: range(03/15-04/30)
+        poster_id: 60970
+    imdb_list:
+      - https://www.imdb.com/list/ls062665509/
+      - https://www.imdb.com/list/ls051733651/
+  Valentine's Day:
+    variables:
+      key: valentine
+    template:
+      - name: Holiday
+        schedule_valentine: range(02/01-02/29)
+        poster_id: 223922
+    imdb_list:
+      - https://www.imdb.com/list/ls000094398/
+      - https://www.imdb.com/list/ls057783436/
+      - https://www.imdb.com/list/ls064427905/
+  St. Patrick's Day:
+    variables:
+      key: patrick
+    template:
+      - name: Holiday
+        schedule_patrick: range(03/01-03/18)
+        poster_id: 219480
+    imdb_list: https://www.imdb.com/list/ls063934595/
+  New Year's Day:
+    variables:
+      key: years
+    template:
+      - name: Holiday
+        schedule_years: range(12/26-01/04)
+        poster_id: 182478
+    imdb_list: https://www.imdb.com/list/ls066838460/

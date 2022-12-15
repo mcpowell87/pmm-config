@@ -1,0 +1,55 @@
+templates:
+  tmdb:
+    optional:
+      - collections
+      - lists
+      - movies
+      - tmdb_summary
+      - summary
+    tmdb_collection: <<collections>>
+    tmdb_list: <<lists>>
+    tmdb_movie: <<movies>>
+    tmdb_summary: <<tmdb_summary>>
+    summary: <<summary>>
+    url_poster: <<poster>>
+    sort_title: <<collection_name>>
+    collection_order: release
+  imdb:
+    url_poster: <<poster>>
+    summary: <<summary>>
+    sync_mode: sync
+collections:
+  James Bond Collection:
+    template: {name: tmdb, movies: 12208, collections: 645, tmdb_summary: 645, poster: https://theposterdb.com/api/assets/2037}
+  Disney Live-Action Remakes:
+    template: {name: imdb, summary: "Live-action remakes produced by Walt Disney Pictures of its animated films.", poster: https://theposterdb.com/api/assets/86910}
+    imdb_list:
+      - https://www.imdb.com/list/ls083312980/
+  Star Wars Collection:
+    template: {name: tmdb, collections: "10", movies: "348350, 330459", tmdb_summary: 10, poster: https://theposterdb.com/api/assets/8789}
+    plex_search:
+      title: "Star Wars"
+  The Infinity Saga:
+    template: {name: imdb, summary: "The Infinity Saga in chronological order.", poster: https://theposterdb.com/api/assets/87212}
+    imdb_list:
+      - https://www.imdb.com/list/ls049839670/
+  DC Animated Universe:
+    template: {name: imdb, summary: "All DC Animated movies.", poster: https://theposterdb.com/api/assets/92217}
+    imdb_list:
+      - https://www.imdb.com/list/ls058721118/
+  DC Comics Universe:
+    template: {name: imdb, summary: "A collection of all DC movies.", poster: https://theposterdb.com/api/assets/52780}
+    imdb_list:
+      - https://www.imdb.com/list/ls041437328/
+  Universal Classic Monster Movies:
+    template: {name: imdb, summary: "A collection of Universal classic monster movies.", poster: https://theposterdb.com/api/assets/87816}
+    imdb_list:
+      - https://www.imdb.com/list/ls052219734/
+  Jurassic Park:
+    template: {name: tmdb, summary: "All Jurassic Park movies.", poster: https://theposterdb.com/api/assets/45080/}
+    tmdb_collection: 
+      - https://www.themoviedb.org/collection/328-jurassic-park-collection
+  The Conjuring Universe:
+    template: {name: imdb, summary: "The list of Conjuring universe movies in chronological order.", poster: https://theposterdb.com/api/assets/23524}
+    imdb_list:
+      - https://www.imdb.com/list/ls068768438/
