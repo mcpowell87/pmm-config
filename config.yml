@@ -11,10 +11,16 @@ libraries:                                      # Library mappings must have a c
     operations:
       mass_critic_rating_update: imdb
       mass_audience_rating_update: mdb_letterboxd
+      delete_collections:
+        unmanaged: true
+        unconfigured: true
     overlay_path:
       - pmm: resolution
       - pmm: audio_codec
       - pmm: language_count
+        template_variables:
+          horizontal_align: right
+          horizontal_offset: 20
       - pmm: ratings
         template_variables:
           rating1: critic
@@ -32,6 +38,9 @@ libraries:                                      # Library mappings must have a c
       - pmm: audio_codec
       - pmm: imdb_top_250
       - pmm: language_count
+        template_variables:
+          horizontal_align: right
+          horizontal_offset: 20
       #- git: home1800/overlays/ratings-no250
       - pmm: ratings
         template_variables:
@@ -48,6 +57,9 @@ libraries:                                      # Library mappings must have a c
       - pmm: resolution
       - pmm: audio_codec
       - pmm: language_count
+        template_variables:
+          horizontal_align: right
+          horizontal_offset: 20
       #- git: home1800/overlays/ratings-no250
       - pmm: ratings
         template_variables:
