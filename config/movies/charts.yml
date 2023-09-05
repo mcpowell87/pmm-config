@@ -6,12 +6,16 @@ collections:
   IMDb Top Rated:
     template: { name: Chart, num: 5 }
     imdb_chart: top_movies
+    radarr_add_missing: true
+    radarr_folder: /data/video/movies
     url_poster: https://i.redd.it/gkfygy4k3tr21.jpg
     summary: Top 250 movies on IMDb
     collection_order: custom
   IMDb Top Rated (English Only):
     template: { name: Chart, num: 6 }
     imdb_chart: top_english
+    radarr_add_missing: true
+    radarr_folder: /data/video/movies
     url_poster: https://i.redd.it/gkfygy4k3tr21.jpg
     summary: Top 250 English movies on IMDb
     collection_order: custom

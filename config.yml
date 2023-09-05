@@ -1,77 +1,77 @@
-## This file is a template remove the .template to use the file
-
-libraries:                                      # Library mappings must have a colon (:) placed after them
+libraries:
   Movies:
     metadata_path:
-      - file: config/config/movies/movies.yml
-      - file: config/config/movies/charts.yml
-      - file: config/config/movies/studios.yml
-      - file: config/config/movies/holiday.yml
-      - file: config/config/movies/collections.yml
+    - file: config/config/movies/charts.yml
+    - file: config/config/movies/studios.yml
+    - file: config/config/movies/holiday.yml
+    - file: config/config/movies/collections.yml
     operations:
       mass_critic_rating_update: imdb
       mass_audience_rating_update: mdb_letterboxd
       delete_collections:
-        unmanaged: true
-        unconfigured: true
+        managed: false
+        configured: false
+        less: 1
     overlay_path:
-      - pmm: resolution
-      - pmm: audio_codec
-      - pmm: language_count
-        template_variables:
-          horizontal_align: right
-          horizontal_offset: 20
-      - pmm: ratings
-        template_variables:
-          rating1: critic
-          rating1_image: imdb
-          rating2: audience
-          rating2_image: letterboxd
-          vertical_position: bottom
-          rating_alignment: horizontal
+    - pmm: resolution
+    - pmm: audio_codec
+    - pmm: ratings
+      template_variables:
+        rating1: critic
+        rating1_image: imdb
+        rating2: audience
+        rating2_image: letterboxd
+        vertical_position: bottom
+        rating_alignment: horizontal
   Movies 4K:
     operations:
       mass_critic_rating_update: imdb
       mass_audience_rating_update: mdb_letterboxd
     overlay_path:
-      - pmm: resolution
-      - pmm: audio_codec
-      - pmm: imdb_top_250
-      - pmm: language_count
-        template_variables:
-          horizontal_align: right
-          horizontal_offset: 20
-      #- git: home1800/overlays/ratings-no250
-      - pmm: ratings
-        template_variables:
-          rating1: critic
-          rating1_image: imdb
-          rating2: audience
-          rating2_image: letterboxd
-          vertical_position: bottom
-          rating_alignment: horizontal
+    - pmm: resolution
+    - pmm: audio_codec
+    - pmm: imdb_top_250
+    - pmm: ratings
+      template_variables:
+        rating1: critic
+        rating1_image: imdb
+        rating2: audience
+        rating2_image: letterboxd
+        vertical_position: bottom
+        rating_alignment: horizontal
   Documentaries:
     metadata_path:
-      - file: config/config/documentaries/charts.yml
+    - file: config/config/documentaries/charts.yml
     overlay_path:
-      - pmm: resolution
-      - pmm: audio_codec
-      - pmm: language_count
-        template_variables:
-          horizontal_align: right
-          horizontal_offset: 20
-      #- git: home1800/overlays/ratings-no250
-      - pmm: ratings
-        template_variables:
-          rating1: critic
-          rating2: audience
-          rating1_image: imdb
-          rating2_image: letterboxd
-          vertical_position: bottom
-          rating_alignment: horizontal
+    - pmm: resolution
+    - pmm: audio_codec
+    - pmm: language_count
+      template_variables:
+        horizontal_align: right
+        horizontal_offset: 20
+    - pmm: ratings
+      template_variables:
+        rating1: critic
+        rating2: audience
+        rating1_image: imdb
+        rating2_image: letterboxd
+        vertical_position: bottom
+        rating_alignment: horizontal
     operations:
       mass_critic_rating_update: imdb
       mass_audience_rating_update: mdb_letterboxd
+  TV Shows:
+    overlay_path:
+    - pmm: status
+      template_variables:
+        font_size: 75
+        font: config/fonts/Juventus-Fans-Bold.ttf
+        back_color: '#262626' # darker
+        back_width: 1920
+        back_height: 125
+        horizontal_align: center
+        vertical_align: top
+        vertical_offset: 0
 settings:                                       # Can be individually specified per library as well
   cache: true
   cache_expiration: 60
@@ -109,12 +109,14 @@ settings:                                       # Can be individually specified 
   playlist_report: true
   check_nightly: false
   show_unconfigured: true
+  playlist_exclude_users:
 webhooks:                                       # Can be individually specified per library as well
   error:
   run_start:
   run_end:
   changes:
   version:
+  delete:
 plex:                                           # Can be individually specified per library as well; REQUIRED for the script to run
   url: http://mediaserver.home:32400
   token: jo3AxZsLvGZ5d9nFVkaL
@@ -122,6 +124,7 @@ plex:                                           # Can be individually specified 
   clean_bundles: false
   empty_trash: false
   optimize: false
+  db_cache:
 tmdb:                                           # REQUIRED for the script to run
   apikey: 64defd376d432286a56e16e593e5d208
   language: en
@@ -140,23 +143,24 @@ anidb:                                          # Not required for AniDB builder
   language: en
   client:
 radarr:                                         # Can be individually specified per library as well
-  url: http://192.168.1.12:7878
-  token:
-  root_folder_path: S:/Movies
+  url: http://seedbox.home:7878
+  token: f238047f42bc42e1bbfc145accee0a08
+  root_folder_path: /data/video/movies
   monitor: true
   availability: announced
   quality_profile: HD-1080p
   tag:
-  search: false
-  radarr_path:
-  plex_path:
+  search: true
+  radarr_path: /data/video/
+  plex_path: /data/video/
   add_existing: false
   add_missing: false
   upgrade_existing: false
+  ignore_cache: false
 sonarr:                                         # Can be individually specified per library as well
-  url: http://192.168.1.12:8989
-  token:
-  root_folder_path: S:/TV Shows
+  url: http://seedbox.home:8989
+  token: 856feddbfb2f43deaaba6a8a5445b070
+  root_folder_path: /data/video/tv
   monitor: all
   quality_profile: HD-1080p
   language_profile: English
@@ -165,11 +169,12 @@ sonarr:                                         # Can be individually specified 
   tag:
   search: false
   cutoff_search: false
-  sonarr_path:
-  plex_path:
+  sonarr_path: /data/video
+  plex_path: /data/video
   add_existing: false
   add_missing: false
   upgrade_existing: false
+  ignore_cache: false
 trakt:
   client_id:
   client_secret:

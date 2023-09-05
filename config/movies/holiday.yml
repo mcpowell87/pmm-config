@@ -1,9 +1,6 @@
 ######################################################
 #                Holiday Collections                 #
 ######################################################
-external_templates:
-  git: PMM/templates
-
 templates:
   Holiday:
     default:
@@ -23,8 +20,6 @@ templates:
     visible_shared: true
     url_poster: https://theposterdb.com/api/assets/<<poster_id>>
 collections:
-  variables:
-    key: thanksgiving
   Thanksgiving:
     variables:
       key: thanksgiving
@@ -38,13 +33,13 @@ collections:
       - https://www.imdb.com/list/ls091597850/
   Hooptober:
     variables:
-      key: halloween
+      key: hooptober
     template:
       - name: Holiday
-        schedule_halloween: range(10/01-10/31)
+        schedule_hooptober: range(09/01-10/31)
         poster_id: 692173
     letterboxd_list:
-      - https://letterboxd.com/mcpowell87/list/hooptober-2022/
+      - https://letterboxd.com/mcpowell87/list/hooptober-x-2023/
   Halloween Movies:
     variables:
       key: halloween
