@@ -32,6 +32,8 @@ collections:
     summary: Letterboxd's Top 250 movies, based on the average weighted rating of all Letterboxd users.  Excludes stand-up specials, stage plays, concert films, documentaries, shorts, collection listings, and other rarities, so only feature length narrative movies are listed.
     url_poster: https://i.imgur.com/t9jlmdF.jpg
     sync_mode: sync
+    radarr_folder: /data/video/movies
+    radarr_add_missing: true
     collection_order: custom
   American Film Institute's 100 Years... 100 Movies - 10th Anniversary Edition:
     template: { name: Chart, num: 3 }

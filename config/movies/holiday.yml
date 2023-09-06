@@ -7,14 +7,13 @@ templates:
       key: <<collection_name>>
       sort_by: title.asc
       sort_by_<<key>>: <<sort_by>>
-    optional:
-      - schedule_<<key>>
-    schedule: <<schedule_<<key>>>>
+      summary: |-
+        A timed collection og <<collection_name>> and other related movies.
+
+        NOTE: this collection will only be around until <<end_date>>.
+    schedule: range(<<start_date>>-<<end_date>>)
     smart_label: <<sort_by_<<key>>>>
-    summary: |-
-      A timed collection of <<collection_name>> and other movies that may relate to the holiday.
-      
-      NOTE: this collection will only be around until <<end_date>>.
+    summary: <<summary>>
     delete_not_scheduled: true
     visible_home: true
     visible_shared: true
@@ -25,7 +24,8 @@ collections:
       key: thanksgiving
     template:
       - name: Holiday
-        schedule_thanksgiving: range(11/01-11/30)
+        start_date: 11/01
+        end_date: 11/30
         poster_id: 112252
     imdb_list: 
       - https://www.imdb.com/list/ls054121890/
@@ -36,7 +36,10 @@ collections:
       key: hooptober
     template:
       - name: Holiday
-        schedule_hooptober: range(09/01-10/31)
+        summary: |-
+          Hooptober is an unofficial annual Letterboxd community viewing challenge, built around scavenger-hunt style watchlists of horror movies in October.  The movies on this list were selected based on the current year's criteria.½I½I
+        start_date: 09/01
+        end_date: 11/01
         poster_id: 692173
     letterboxd_list:
       - https://letterboxd.com/mcpowell87/list/hooptober-x-2023/
@@ -45,7 +48,8 @@ collections:
       key: halloween
     template: 
       - name: Holiday
-        schedule_halloween: range(10/01-10/31)
+        start_date: 10/01
+        end_date: 11/01
         poster_id: 102917
     imdb_list:
       - https://www.imdb.com/list/ls023118929/
@@ -65,7 +69,8 @@ collections:
       key: christmas
     template:
       - name: Holiday
-        schedule_christmas: range(12/01-12/31)
+        start_date: 12/01
+        end_date: 12/31
         poster_id: 48897
     imdb_list: https://www.imdb.com/list/ls000096828/
   Independence Day:
@@ -73,7 +78,8 @@ collections:
       key: independence
     template:
       - name: Holiday
-        schedule_independence: range(06/23-07/11)
+        start_date: 06/23
+        end_date: 07/11
         poster_id: 240645
     imdb_list:
       - https://www.imdb.com/list/ls068664510/
@@ -83,7 +89,8 @@ collections:
       key: easter
     template:
       - name: Holiday
-        schedule_easter: range(03/15-04/30)
+        start_date: 03/15
+        end_date: 04/30
         poster_id: 60970
     imdb_list:
       - https://www.imdb.com/list/ls062665509/
@@ -93,7 +100,8 @@ collections:
       key: valentine
     template:
       - name: Holiday
-        schedule_valentine: range(02/01-02/29)
+        start_date: 02/01
+        end_date: 02/29
         poster_id: 223922
     imdb_list:
       - https://www.imdb.com/list/ls000094398/
@@ -104,7 +112,8 @@ collections:
       key: patrick
     template:
       - name: Holiday
-        schedule_patrick: range(03/01-03/18)
+        start_date: 03/01
+        end_date: 03/18        
         poster_id: 219480
     imdb_list: https://www.imdb.com/list/ls063934595/
   New Year's Day:
@@ -112,6 +121,7 @@ collections:
       key: years
     template:
       - name: Holiday
-        schedule_years: range(12/26-01/04)
+        start_date: 12/26
+        end_date: 01/04
         poster_id: 182478
     imdb_list: https://www.imdb.com/list/ls066838460/
