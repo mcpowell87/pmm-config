@@ -5,6 +5,8 @@ templates:
 collections:
   Letterboxd Top 250 Documentary Films:
     template: { name: Chart, num: 1 }
+    radarr_add_missing: true
+    radarr_folder: /data/video/documentaries
     letterboxd_list: https://letterboxd.com/jack/list/official-top-250-documentary-films/
     summary: Letterboxd's Top 250 Documentary Films, ranked by average user rating.
     collection_order: custom

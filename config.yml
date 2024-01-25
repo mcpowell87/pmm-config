@@ -1,5 +1,6 @@
 libraries:
   Movies:
+    schedule: hourly(00-23)
     metadata_path:
     - file: config/config/movies/charts.yml
     - file: config/config/movies/studios.yml
@@ -24,6 +25,7 @@ libraries:
         vertical_position: bottom
         rating_alignment: horizontal
   Movies 4K:
+    schedule: daily
     operations:
       mass_critic_rating_update: imdb
       mass_audience_rating_update: mdb_letterboxd
@@ -40,6 +42,7 @@ libraries:
         vertical_position: bottom
         rating_alignment: horizontal
   Documentaries:
+    schedule: daily
     metadata_path:
     - file: config/config/documentaries/charts.yml
     overlay_path:
@@ -61,6 +64,7 @@ libraries:
       mass_critic_rating_update: imdb
       mass_audience_rating_update: mdb_letterboxd
   TV Shows:
+    schedule: hourly(00-23)
     overlay_path:
     - pmm: status
       template_variables:
@@ -110,6 +114,11 @@ settings:                                       # Can be individually specified 
   check_nightly: false
   show_unconfigured: true
   playlist_exclude_users:
+  run_order:
+  - operations
+  - metadata
+  - collections
+  - overlays
 webhooks:                                       # Can be individually specified per library as well
   error:
   run_start:
@@ -157,6 +166,7 @@ radarr:                                         # Can be individually specified 
   add_missing: false
   upgrade_existing: false
   ignore_cache: false
+  monitor_existing: false
 sonarr:                                         # Can be individually specified per library as well
   url: http://seedbox.home:8989
   token: 856feddbfb2f43deaaba6a8a5445b070
@@ -175,6 +185,7 @@ sonarr:                                         # Can be individually specified 
   add_missing: false
   upgrade_existing: false
   ignore_cache: false
+  monitor_existing: false
 trakt:
   client_id:
   client_secret:
