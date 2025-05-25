@@ -32,5 +32,15 @@ collections:
     summary: Walt Disney Pictures is an American film production studio of The Walt Disney Studios, which is owned by The Walt Disney Company. The studio is the flagship producer of live-action feature films within the Walt Disney Studios unit, and is based at the Walt Disney Studios in Burbank, California. Animated films produced by Walt Disney Animation Studios and Pixar Animation Studios are also released under this brand. Walt Disney Studios Motion Pictures distributes and markets the films produced by Walt Disney Pictures.
   Illumination Entertainment:
     template: { name: Studio, poster_id: 8158 }
-    imdb_list: https://www.imdb.com/search/title/?companies=co0221986
+    imdb_search:
+      type: movie
+      company: co0221986
     summary: Illumination is an American film and animation studio founded by Chris Meledandri in 2007 and owned by Universal Pictures, a division of NBCUniversal, which is itself a division of Comcast. Meledandri produces the films, while Universal finances and distributes all the films. The studio is responsible for the Despicable Me and The Secret Life of Pets franchises and the film adaptations of Dr. Seuss’ books The Lorax and How the Grinch Stole Christmas. The Minions, characters from the Despicable Me series, are the studio's mascots.
+  A24:
+    template: { name: Studio, poster_id: 244218 }
+    imdb_search:
+      type: movie
+      company: co0390816
+    radarr_add_missing: true
+    radarr_folder: /data/media/video/movies
+    summary: A24 is an American independent entertainment company based in New York City known for its distinctive style in film distribution and production. They are known for acquiring and releasing indie films, often with a focus on art house and horror genres. A24 has also transitioned into producing its own original content.

@@ -1,7 +1,7 @@
 libraries:
   Movies:
     schedule: hourly(00-23)
-    metadata_path:
+    collection_files:
     - file: config/config/movies/charts.yml
     - file: config/config/movies/studios.yml
     - file: config/config/movies/holiday.yml
@@ -13,10 +13,10 @@ libraries:
         managed: false
         configured: false
         less: 1
-    overlay_path:
-    - pmm: resolution
-    - pmm: audio_codec
-    - pmm: ratings
+    overlay_files:
+    - default: resolution
+    - default: audio_codec
+    - default: ratings
       template_variables:
         rating1: critic
         rating1_image: imdb
@@ -29,11 +29,11 @@ libraries:
     operations:
       mass_critic_rating_update: imdb
       mass_audience_rating_update: mdb_letterboxd
-    overlay_path:
-    - pmm: resolution
-    - pmm: audio_codec
-    - pmm: imdb_top_250
-    - pmm: ratings
+    overlay_files:
+    - default: resolution
+    - default: audio_codec
+    - default: imdb_top_250
+    - default: ratings
       template_variables:
         rating1: critic
         rating1_image: imdb
@@ -43,16 +43,16 @@ libraries:
         rating_alignment: horizontal
   Documentaries:
     schedule: daily
-    metadata_path:
+    collection_files:
     - file: config/config/documentaries/charts.yml
-    overlay_path:
-    - pmm: resolution
-    - pmm: audio_codec
-    - pmm: language_count
+    overlay_files:
+    - default: resolution
+    - default: audio_codec
+    - default: language_count
       template_variables:
         horizontal_align: right
         horizontal_offset: 20
-    - pmm: ratings
+    - default: ratings
       template_variables:
         rating1: critic
         rating2: audience
@@ -65,8 +65,8 @@ libraries:
       mass_audience_rating_update: mdb_letterboxd
   TV Shows:
     schedule: hourly(00-23)
-    overlay_path:
-    - pmm: status
+    overlay_files:
+    - default: status
       template_variables:
         font_size: 75
         font: config/fonts/Juventus-Fans-Bold.ttf
@@ -119,6 +119,9 @@ settings:                                       # Can be individually specified 
   - metadata
   - collections
   - overlays
+  overlay_artwork_filetype: jpg
+  overlay_artwork_quality:
+  show_unfiltered: false
 webhooks:                                       # Can be individually specified per library as well
   error:
   run_start:
@@ -134,6 +137,7 @@ plex:                                           # Can be individually specified 
   empty_trash: false
   optimize: false
   db_cache:
+  verify_ssl:
 tmdb:                                           # REQUIRED for the script to run
   apikey: 64defd376d432286a56e16e593e5d208
   language: en
@@ -154,14 +158,14 @@ anidb:                                          # Not required for AniDB builder
 radarr:                                         # Can be individually specified per library as well
   url: http://seedbox.home:7878
   token: f238047f42bc42e1bbfc145accee0a08
-  root_folder_path: /data/video/movies
+  root_folder_path: /data/media/video/movies
   monitor: true
   availability: announced
   quality_profile: HD-1080p
   tag:
   search: true
-  radarr_path: /data/video/
-  plex_path: /data/video/
+  radarr_path: /data/media/video/
+  plex_path: /data/media/video/
   add_existing: false
   add_missing: false
   upgrade_existing: false
@@ -170,7 +174,7 @@ radarr:                                         # Can be individually specified 
 sonarr:                                         # Can be individually specified per library as well
   url: http://seedbox.home:8989
   token: 856feddbfb2f43deaaba6a8a5445b070
-  root_folder_path: /data/video/tv
+  root_folder_path: /data/media/video/tv
   monitor: all
   quality_profile: HD-1080p
   language_profile: English
@@ -179,8 +183,8 @@ sonarr:                                         # Can be individually specified 
   tag:
   search: false
   cutoff_search: false
-  sonarr_path: /data/video
-  plex_path: /data/video
+  sonarr_path: /data/media/video
+  plex_path: /data/media/video
   add_existing: false
   add_missing: false
   upgrade_existing: false

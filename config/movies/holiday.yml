@@ -42,7 +42,7 @@ collections:
         end_date: 11/01
         poster_id: 692173
     letterboxd_list:
-      - https://letterboxd.com/mcpowell87/list/hooptober-x-2023/
+      - https://letterboxd.com/mcpowell87/list/hooptober-11-2024/
   Halloween Movies:
     variables:
       key: halloween
